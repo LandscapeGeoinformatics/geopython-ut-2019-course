@@ -1,0 +1,69 @@
+.. commented out :caption: Lesson 0
+   L0/overview
+   L0/Installing_Miniconda_GIS
+   L0/recap-python
+
+.. commented out :caption: Lesson 1
+   L1/overview
+   L1/Geometric-Objects
+   L1/ex-1
+   L1/exercise-1-hints
+
+.. commented out
+   L1/lecture
+
+.. commented out
+   :caption: Lesson 2
+   L2/overview
+   L2/Introduction-GIT
+   L2/spyder-ide
+   L2/geopandas-basics
+   L2/projections
+   L2/ex-2
+   L2/exercise-2-hints
+
+.. commented out
+   L2/more-git-hints
+   L2/lecture
+
+.. commented out
+   :caption: Lesson 3
+   L3/overview
+   L3/point-in-polygon
+   L3/spatial-join
+
+.. commented out
+   L3/ex-3
+   L3/exercise-3-hints
+   L3/geocoding
+   L3/nearest-neighbour
+   L3/lecture
+
+.. commented out
+   :caption: Lesson 4
+   L4/overview
+   L4/reclassify
+   L4/gmaps-heatmap
+   L4/ex-4
+   L4/exercise-4-hints
+
+.. commented out
+   L4/geometric-operations
+   L4/lecture
+
+.. commented out
+   :caption: Lesson 5
+   L5/overview
+   L5/static-maps
+   L5/interactive-map-bokeh
+   L5/interactive-map-folium
+   L5/ex-5
+   L5/exercise-5-hints
+   L5/examples_2018
+
+
+.. commented out
+   L5/advanced-bokeh
+   L5/World-3D
+   L5/share-on-github
+   L5/lecture
