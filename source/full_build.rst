@@ -15,10 +15,12 @@ Contents
    L0/Installing_Miniconda_GIS
    L0/recap-python
 
-.. commented out
+   L1/overview
+   L1/Geometric-Objects
    L1/exercise
    L1/exercise-hints
-   L1/overview
+
+.. commented out
 
    L2/exercise
    L2/exercise-hints

@@ -41,37 +41,22 @@ Course topics
 
 The materials are divided into several sections:
 
-+----------------+---------------------------------+
-| Time           | Theme                           |
-+================+=================================+
-| **Lesson 0**   | Recap Getting started Python;   |
-|                | Setup Miniconda environments;   |
-|                | Jupyter Notebooks               |
-|                |                                 |
-+----------------+---------------------------------+
-| **Lesson 1**   | GIS in Python;                  |
-|                | Spatial data model;             |
-|                | Geometric Objects; Shapely      |
-|                |                                 |
-+----------------+---------------------------------+
-| **Lesson 2**   | Working with GeoDataFrames;     |
-|                | Managing projections;           |
-|                |                                 |
-+----------------+---------------------------------+
-| **Lesson 3**   | making spatial queries  and     |
-|                | and joins;                      |
-|                |                                 |
-+--------------------------------------------------+
-| **Lesson 4**   | Working with raster data        |
-|                |                                 |
-+----------------+---------------------------------+
-| **Lesson 5**   | Reclassifying data with Pysal   |
-|                |                                 |
-+----------------+---------------------------------+
-| **Lesson 6**   | Visualization, making static    |
-|                | and interactive maps            |
-|                |                                 |
-+----------------+---------------------------------+
+=============  =====
+Lesson         Theme
+=============  =====
+**Lesson 0**   Setup Miniconda environments and Jupyter Notebooks;
+               Recap Getting started Python;
+**Lesson 1**   Spatial data model;
+               Geometric Objects; Shapely
+**Lesson 2**   Working with GeoDataFrames;
+               Managing projections;
+**Lesson 3**   making spatial queries
+               and joins;
+**Lesson 4**   Working with raster data
+**Lesson 5**   Reclassifying data with Pysal
+**Lesson 6**   Visualization, making static
+               and interactive maps;
+=============  =====
 
 
 Contents
@@ -98,14 +83,14 @@ Contents
    L0/recap-python
 
 
-.. commented out :caption: Lesson 1
+.. commented out
+   :maxdepth: 2
+   :caption: Lesson 1
+   
    L1/overview
    L1/Geometric-Objects
-   L1/ex-1
-   L1/exercise-1-hints
-
-.. commented out
-   L1/lecture
+   L1/exercise
+   L1/exercise-hints
 
 .. commented out
    :caption: Lesson 2

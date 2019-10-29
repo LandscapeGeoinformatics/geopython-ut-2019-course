@@ -9,7 +9,9 @@ Python Refresher as Jupyter Notebooks
 
 In the previous sections you should have installed all required packages for your conda environment, including the Jupyter Notebook.
 
-Download the linked **.ipynb** files (Jupyter Notebook files) - right click on the links below (Chapter 1, Chapter 2 etc) and save them into your "geopython2019" folder.
+Create a folder named ``L0`` in your geopython2019 working directory.
+
+Download the linked **.ipynb** files (Jupyter Notebook files) - right click on the links below (Chapter 1, Chapter 2 etc) and save them into your ``geopython2019/L0`` folder.
 Go back into the console/commandline prompt, make sure you are in the directory where you extracted the materials. There you should now start the Jupyter notebook.
 
 All you need to do to play notebooks is to type the following command in your project folder:
@@ -20,7 +22,7 @@ All you need to do to play notebooks is to type the following command in your pr
 
     (geopy2019) jupyter notebook
 
-A browser window will open, with the files listed from your geopython folder. In order to start a Notebook, click on the respective **.ipynb** file.
+A browser window will open, with the files listed from your ``geopython2019`` folder and you will see the ``L0`` directory. In order to start a Notebook, click on the folder to step into the ``L0`` folder and click on the respective **.ipynb** file.
 This will open a new tab in the browser and now you have a running Jupyter notebook session.
 Cells are tyically either Code (Python) that you can run/execute, or descriptive text in Markdown format.
 
