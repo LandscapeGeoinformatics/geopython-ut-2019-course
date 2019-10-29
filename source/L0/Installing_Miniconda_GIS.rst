@@ -117,7 +117,9 @@ And we gibe the environment a name ( -n ).
 
 .. admonition:: BEWARE:
 
-    Please don't do this, because you already have the environment install via the ``enviroment.yml`` configuration above.
+    Please don't do the following steps, because you already have the environment install via the ``enviroment.yml`` configuration above.
+
+If you would create your environment manually, it would go like that:
 
 .. code::
 
@@ -149,28 +151,28 @@ Make sure you are in the correct enviroment (don't install into ``base``, instal
     (geopy2019) conda install -c pyviz -c conda-forge numpy pandas gdal fiona shapely geopandas geoviews
 
     # Install matplotlib
-    (geopy2019) conda install -c pyviz -c conda-forge install matplotlib
+    (geopy2019) conda install -c pyviz -c conda-forge matplotlib
 
     # Install scipy
-    (geopy2019) conda install -c pyviz -c conda-forge install scipy
+    (geopy2019) conda install -c pyviz -c conda-forge scipy
 
     #Install Jupyter Notebook
-    (geopy2019) conda install -c pyviz -c conda-forge install jupyter
+    (geopy2019) conda install -c pyviz -c conda-forge jupyter
 
     # Install rasterio and rasterstats
-    (geopy2019) conda install -c pyviz -c conda-forge install rasterio rasterstats
+    (geopy2019) conda install -c pyviz -c conda-forge rasterio rasterstats
 
     # Install seaborn
-    (geopy2019) conda install -c pyviz -c conda-forge install seaborn
+    (geopy2019) conda install -c pyviz -c conda-forge seaborn
 
     # Install geoplot and cartopy
-    (geopy2019) conda install -c pyviz -c conda-forge install geoplot cartopy
+    (geopy2019) conda install -c pyviz -c conda-forge geoplot cartopy
 
     # Install pysal and mapclassify
-    (geopy2019) conda install -c pyviz -c conda-forge install pysal mapclassify
+    (geopy2019) conda install -c pyviz -c conda-forge pysal mapclassify
 
     # Install bokeh
-    (geopy2019) conda install -c pyviz -c conda-forge install bokeh
+    (geopy2019) conda install -c pyviz -c conda-forge bokeh
 
     # Install Folium
     (geopy2019) conda install -c pyviz -c conda-forge folium
@@ -300,7 +302,7 @@ That should be it. You should now be able to start the Jupyter notebook server:
 
 .. code::
 
-    (geopy2019) python -m ipykernel install --user --name geopy2019
+    (geopy2019) jupyter notebook
 
 This should open a webpage in your default webbrowser. we'll take it from there in the next section.
 
