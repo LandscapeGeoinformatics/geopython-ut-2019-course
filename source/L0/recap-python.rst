@@ -12,7 +12,16 @@ In the previous sections you should have installed all required packages for you
 Create a folder named ``L0`` in your geopython2019 working directory.
 
 Download the linked **.ipynb** files (Jupyter Notebook files) - right click on the links below (Chapter 1, Chapter 2 etc) and save them into your ``geopython2019/L0`` folder.
-Go back into the console/commandline prompt, make sure you are in the directory where you extracted the materials. There you should now start the Jupyter notebook.
+Go back into the console/commandline prompt (Anaconda prompt), make sure you are in the directory where you extracted the materials. There you should now start the Jupyter notebook.
+
+1) Open Anaconda Prompt
+
+2) activate "geopy2019" environment
+
+3) navigate into your working folder
+
+4) start Jupyter notebook
+
 
 All you need to do to play notebooks is to type the following command in your project folder:
 

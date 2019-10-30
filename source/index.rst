@@ -80,6 +80,8 @@ Contents
 
    L0/overview
    L0/Installing_Miniconda_GIS
+   L0/alt_install_miniconda
+   L0/test_installation
    L0/recap-python
 
 

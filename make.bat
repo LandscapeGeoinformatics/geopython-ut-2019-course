@@ -12,6 +12,8 @@ set BUILDDIR=build
 
 if "%1" == "" goto help
 
+if "%1" == "unison" goto unis
+
 %SPHINXBUILD% >NUL 2>NUL
 if errorlevel 9009 (
 	echo.
@@ -30,6 +32,10 @@ goto end
 
 :help
 %SPHINXBUILD% -M help %SOURCEDIR% %BUILDDIR% %SPHINXOPTS% %O%
+
+
+:unis
+C:\ProgramData\chocolatey\bin\unison-2.48.4-text C:\dev\05_geodata\geopython-2019\build\html\ \\leesikas.ut.ee\kmoch\public_html\geopython2019\
 
 :end
 popd

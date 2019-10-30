@@ -1,0 +1,83 @@
+Test that everything works
+--------------------------
+
+If you don't have the Anaconda Prompt open, please open it. ``Anaconda Prompt`` can be found by clicking on the Windows start menu button and start typing ``Anaconda Prompt``.
+Also always make sure you have activated your ``geopy2019`` environment.
+
+.. code::
+
+    (C:\dev\conda3)  activate geopy2019
+
+    (geopy2019)
+
+You can test that the installations have worked by running following commands in a Python console.
+At first start the Python console:
+
+.. code::
+
+    (geopy2019) python
+
+    Type "help", "copyright", "credits" or "license" for more information.
+    >>>
+
+.. code:: python
+
+     import numpy as np
+     import pandas as pd
+     import matplotlib.pyplot as plt
+     import seaborn
+     import scipy
+     import shapely
+     import gdal
+     import fiona
+     import shapely
+     import geopandas as gpd
+     import pysal
+     import bokeh
+     import cartopy
+     import mapclassify
+     import geoviews
+     import rasterstats
+     import rasterio
+     import geoplot
+     import folium
+
+
+If you don't receive any errors, everything should be working!
+
+In order to close the Python interpreter type ``exit()`` or press **Ctrl+Z** plus Return to exit.
+
+.. code::
+
+    (geopy2019) >>> exit()
+
+
+Setting up Jupyter Notebook
+---------------------------
+
+The Jupyter Notebook is an open-source web application that allows you to create and share documents that contain live code,
+equations, visualizations and narrative text. Uses include: data cleaning and transformation, numerical simulation, statistical modeling,
+data visualization, machine learning, and much more.
+
+Before we start Python coding we will make our newly created conda Python environment known to the Jupyter notebook system by installing the kernel, basically the execution engine link from Jupyter web notebook to our Python environment:
+
+Make sure you are in your dedicated working directory, your "geopython2019" folder, on the Command line window (Anaconda promt). And make sure the ``geopy2019`` conda environment is activated:
+
+.. code::
+
+    (C:\dev\conda3)  activate geopy2019
+
+    (geopy2019) python -m ipykernel install --user --name geopy2019
+
+That should be it. You should now be able to start the Jupyter notebook server:
+
+.. code::
+
+    (geopy2019) jupyter notebook
+
+This should open a webpage in your default webbrowser. 
+
+.. Note::
+
+    Don't close the console window nor the browser window where the notebooks opened. Always use the "File" -> "Save and Checkpoint" and then -> "Close and Halt" menu options in the notebooks, and the "Quit" button on the main notebook server webpage.
+
