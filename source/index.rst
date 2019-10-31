@@ -85,7 +85,7 @@ Contents
    L0/recap-python
 
 
-.. commented out
+.. toctree::
    :maxdepth: 2
    :caption: Lesson 1
    
@@ -97,29 +97,23 @@ Contents
 .. commented out
    :caption: Lesson 2
    L2/overview
-   L2/Introduction-GIT
-   L2/spyder-ide
    L2/geopandas-basics
    L2/projections
-   L2/ex-2
-   L2/exercise-2-hints
+   L2/exercise
+   L2/exercise-hints
 
-.. commented out
-   L2/more-git-hints
-   L2/lecture
 
 .. commented out
    :caption: Lesson 3
-   L3/overview
+   L3/overview.rst
    L3/point-in-polygon
    L3/spatial-join
 
+
 .. commented out
-   L3/ex-3
-   L3/exercise-3-hints
-   L3/geocoding
-   L3/nearest-neighbour
-   L3/lecture
+   L3/exercise
+   L3/exercise-hints
+
 
 .. commented out
    :caption: Lesson 4
@@ -129,9 +123,11 @@ Contents
    L4/ex-4
    L4/exercise-4-hints
 
+
 .. commented out
    L4/geometric-operations
    L4/lecture
+
 
 .. commented out
    :caption: Lesson 5

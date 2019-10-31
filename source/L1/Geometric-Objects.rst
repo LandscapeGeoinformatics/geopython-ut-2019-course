@@ -557,7 +557,12 @@ combined. There are also some extra features available such as
 each other.
 
 
-**Credits:**
+**Launch in the web/MyBinder:**
+
+.. image:: https://mybinder.org/badge_logo.svg
+     :target: https://mybinder.org/v2/gh/LandscapeGeoinformatics/geopython-ut-2019/master?filepath=L1%2Flesson1.ipynb
+
+**Acknowledgments:**
 
 These materials are partly based on `Shapely
 -documentation <https://shapely.readthedocs.io/en/latest/>`__ and `Westra

@@ -20,16 +20,19 @@ Contents
    L1/exercise
    L1/exercise-hints
 
-.. commented out
-
+   L2/overview
+   L2/geopandas-basics
+   L2/projections
    L2/exercise
    L2/exercise-hints
-   L2/overview
 
+   L3/overview.rst
+   L3/point-in-polygon
+   L3/spatial-join
    L3/exercise
    L3/exercise-hints
-   L3/overview.rst
 
+.. commented out
    L4/exercise
    L4/exercise-hints
    L4/overview
