@@ -35,7 +35,7 @@ goto end
 
 
 :unis
-C:\ProgramData\chocolatey\bin\unison-2.48.4-text C:\dev\05_geodata\geopython-2019\build\html\ \\leesikas.ut.ee\kmoch\public_html\geopython2019\
+C:\ProgramData\chocolatey\bin\unison-2.48.4-text -auto -batch C:\dev\05_geodata\geopython-2019\build\html\ \\leesikas.ut.ee\kmoch\public_html\geopython2019\
 
 :end
 popd

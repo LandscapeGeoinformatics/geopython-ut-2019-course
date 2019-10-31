@@ -64,15 +64,15 @@ tool to solve this problem as with Python it is basically possible to read data 
 So far, I haven't faced any kind of data or file that would be impossible to read with Python.
 
 Thus, let's see how we can read data from a file and create Point -objects from them that can be saved e.g. as a new Shapefile (we will learn this next lesson).
-Our dataset ** `travelTimes_2015_Helsinki.txt <../_static/data/L1/travelTimes_2015_Helsinki.txt>`_ ** consist of
-travel times between specific locations in Helsinki Region. The first four rows of our data looks like this:
+Our dataset ** `Years.2015-2017.ibtracs_wmo.storms.csv <../_static/data/Exercise1/Years.2015-2017.ibtracs_wmo.storms.csv>`_ ** consist of tracked 
+paths of tropical storms, hurricanes etc in the years 2015-2017. The first four rows of our data looks like this:
 
 .. code::
 
-   from_id;to_id;fromid_toid;route_number;at;from_x;from_y;to_x;to_y;total_route_time;route_time;route_distance;route_total_lines
-   5861326;5785640;5861326_5785640;1;08:10;24.9704379;60.3119173;24.8560344;60.399940599999994;125.0;99.0;22917.6;2.0
-   5861326;5785641;5861326_5785641;1;08:10;24.9704379;60.3119173;24.8605682;60.4000135;123.0;102.0;23123.5;2.0
-   5861326;5785642;5861326_5785642;1;08:10;24.9704379;60.3119173;24.865102;60.4000863;125.0;103.0;23241.3;2.0
+    Name,Serial_Num,year,Basin,Sub_basin,Num,Latitude_first,Longitude_first,Latitude_last,Longitude_last,ISO_time_first,ISO_time_last,Nature
+    ADJALI,2014319S06066,2015, SI, MM,1,-6.7,66.4,-11.9,51.4,2014-11-15 06:00:00,2014-11-24 06:00:00, TS
+    0220142015:TWO,2014327S08077,2015, SI, MM,2,-8.0,77.3,-28.9,62.5,2014-11-23 06:00:00,2014-12-02 00:00:00, TS
+    KATE,2014356S08101,2015, SI, WA,4,-7.5,100.5,-30.0,89.6,2014-12-21 15:00:00,2015-01-04 12:00:00, NR
 
 
 Thus, we have many columns of data, but the few important ones are:
@@ -80,22 +80,21 @@ Thus, we have many columns of data, but the few important ones are:
 +------------------+---------------------------------------------------------+
 | Column           | Description                                             |
 +==================+=========================================================+
-| from_x           | x-coordinate of the **origin** location (longitude)     |
+| Longitude_first  | Longitude-coordinate of the **first** time of tracking  |
 +------------------+---------------------------------------------------------+
-| from_y           | y-coordinate of the **origin** location (latitude)      |
+| Latitude_first   | Latitude-coordinate of the **first** time of tracking   |
 +------------------+---------------------------------------------------------+
-| to_x             | x-coordinate of the **destination** location (longitude)|
+| Longitude_last   | Longitude-coordinate of the **last** time of tracking   |
 +------------------+---------------------------------------------------------+
-| to_y             | y-coordinate of the **destination** location (latitude) |
+| Latitude_last    | Latitude-coordinate of the **last** time of tracking    |
 +------------------+---------------------------------------------------------+
-| total_route_time | Travel time with public transportation at the route     |
-+------------------+---------------------------------------------------------+
+
 
 **Tasks**
 
-1. Save the `travelTimes_2015_Helsinki.txt <../_static/data/L1/travelTimes_2015_Helsinki.txt>`_ into your computer.
-2. We will use only 4 columns, i.e. 'from_x', 'from_y', 'to_x', 'to_y' from the data in.
-3. Iterate over the rows of your DataFrame and create Shapely Point -objects for ``orig_points`` and ``dest_points`` representing the origin locations and destination locations of a travel row, accordingly. Therefore, create two additional columns called ``orig_points`` and ``dest_points`` by applying a function that creates shapely points from the coordinates. Think through, how to make a step-by-step approach based on the lecture and hints provided.
+1. Save the ``Years.2015-2017.ibtracs_wmo.storms.csv`` into your computer.
+2. We will use only 4 columns, i.e. 'Longitude_first' (x), 'Latitude_first' (y), 'Longitude_last', 'Latitude_last'  from the data in.
+3. Iterate over the rows of your DataFrame and create Shapely Point -objects for ``orig_points`` and ``dest_points`` representing the origin locations and destination locations of the storm paths rows, accordingly. Therefore, create two additional columns called ``orig_points`` and ``dest_points`` by applying a function that creates shapely points from the coordinates. Think through, how to make a step-by-step approach based on the lecture and hints provided.
 
 .. _problem-4-Creating-LineStrings-that-represent-the-movements-optional-task-for-advanced-students:
 
