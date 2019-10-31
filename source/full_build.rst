@@ -23,8 +23,6 @@ Contents
    L2/overview
    L2/geopandas-basics
    L2/projections
-   L2/exercise
-   L2/exercise-hints
 
    L3/overview.rst
    L3/point-in-polygon

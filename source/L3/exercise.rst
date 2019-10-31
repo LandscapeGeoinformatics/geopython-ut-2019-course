@@ -66,7 +66,7 @@ The data has 81379 rows and consists of locations and times of social media post
 - `Download the data **some_posts.csv** <../_static/data/Exercise2/some_posts.csv>`_ (Click on the link ==> CNTRL + S)
 - Read the data into memory using Pandas
 - Create an empty column called ``geometry`` where you will store shapely Point objects
-- Iterate over the rows of the DataFrame and insert Point objects into the column geometry (you need to use .loc indexer to update the row, `see materials <geopandas-basics.html#creating-geometries-into-a-geodataframe>`_
+- Iterate over the rows of the DataFrame and insert Point objects into the column geometry (you need to use .loc indexer to update the row, `see materials <../L2/geopandas-basics.html#creating-geometries-into-a-geodataframe>`_
 - Convert that DataFrame into a GeoDataFrame, `see hints <exercise-hints.html>`_
 - Update the CRS for coordinate system as WGS84 (i.e. epsg code: 4326)
 - Save the data into a Shapefile called ``Kruger_posts.shp``

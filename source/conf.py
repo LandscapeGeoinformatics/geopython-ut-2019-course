@@ -66,6 +66,8 @@ html_theme = "sphinx_rtd_theme"
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 
+ipython_savefig_dir = os.path.join('_static','img')
+
 html_logo = '_static/img/logo_ut.png'
 
 # If not None, a 'Last updated on:' timestamp is inserted at every page

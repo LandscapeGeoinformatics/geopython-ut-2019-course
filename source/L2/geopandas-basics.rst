@@ -66,12 +66,11 @@ matplotlib as a backend):
 
 .. ipython:: python
 
-   @savefig damselfish.png width=5in
-   data.plot();
+    @savefig damselfish.png width=5in
+    data.plot();
 
 
 .. image:: ../_static/img/damselfish.png
-
 
 Writing a Shapefile
 -------------------

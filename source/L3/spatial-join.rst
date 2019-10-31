@@ -2,7 +2,7 @@
 Spatial join
 ============
 
-`Spatial join <http://wiki.gis.com/wiki/index.php/Spatial_Join>`_ is
+`A Spatial join <http://wiki.gis.com/wiki/index.php/Spatial_Join>`_ is
 yet another classic GIS problem. Getting attributes from one layer and
 transferring them into another layer based on their spatial relationship
 is something you most likely need to do on a regular basis.
@@ -14,7 +14,7 @@ spatial relationship. We could for example join the attributes of a
 polygon layer into a point layer where each point would get the
 attributes of a polygon that ``contains`` the point.
 
-Luckily, `spatial join <http://geopandas.org/mergingdata.html#spatial-joins>`_
+Luckily, `spatial joins <http://geopandas.org/mergingdata.html#spatial-joins>`_
 (``gpd.sjoin()`` -function) is already implemented in Geopandas, thus we
 do not need to create it ourselves. There are three possible types of
 join that can be applied in spatial join that are determined with ``op``
