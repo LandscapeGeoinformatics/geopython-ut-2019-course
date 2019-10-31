@@ -213,7 +213,7 @@ or the length of a LineString (line), calculate the centroid of the
 line, create points along the line at specific distance, calculate the
 closest distance from a line to specified Point and simplify the
 geometry. See full list of functionalities from `Shapely
-documentation <http://toblerity.org/shapely/manual.html#>`__. Here, we
+documentation <https://shapely.readthedocs.io/en/latest/manual.html>`__. Here, we
 go through a few of them.
 
 -  We can extract the coordinates of a LineString similarly as with

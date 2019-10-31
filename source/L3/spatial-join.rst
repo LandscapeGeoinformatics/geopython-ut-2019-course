@@ -38,7 +38,7 @@ For this lesson we will be using publicly available population data from
 Helsinki that can be downloaded from `Helsinki Region Infroshare
 (HRI) <http://www.hri.fi/en/dataset/vaestotietoruudukko>`_ .
 
-From HRI **download ** the `Population grid for year
+From HRI **download** the `Population grid for year
 2015 <../_static/data/L3/Vaestotietoruudukko_2015.zip>`_
 that is a dataset (.shp) produced by Helsinki Region Environmental
 Services Authority (HSY) (see `this
