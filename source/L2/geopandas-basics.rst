@@ -215,12 +215,12 @@ Let's create a new column called ``geometry`` that will contain our Shapely obje
 Now we have a geometry column in our GeoDataFrame but we don't have any
 data yet.
 
-Let's create a Shapely Polygon repsenting the Helsinki Senate square that we can insert to our GeoDataFrame:
+Let's create a Shapely Polygon repsenting the Tartu Townhall square that we can insert to our GeoDataFrame:
 
 .. ipython:: python
 
-    # Coordinates of the Helsinki Senate square in Decimal Degrees
-    coordinates = [(24.950899, 60.169158), (24.953492, 60.169158), (24.953510, 60.170104), (24.950958, 60.169990)]
+    # Coordinates of the Tartu Townhall square in Decimal Degrees
+    coordinates = [(26.722117, 58.380184), (26.724853, 58.380676), (26.724961, 58.380518), (26.722372, 58.379933)]
 
     # Create a Shapely polygon from the coordinate-tuple list
     poly = Polygon(coordinates)
@@ -243,12 +243,12 @@ Let's insert the polygon into our 'geometry' column in our GeoDataFrame:
 Now we have a GeoDataFrame with Polygon that we can export to a
 Shapefile.
 
-Let's add another column to our GeoDataFrame called ``Location`` with the text *Helsinki Senate Square*.
+Let's add another column to our GeoDataFrame called ``Location`` with the text *Tartu Townhall Square*.
 
 .. ipython:: python
 
     # Add a new column and insert data
-    newdata.loc[0, 'Location'] = 'Helsinki Senate Square'
+    newdata.loc[0, 'Location'] = 'Tartu Townhall Square'
 
     # Let's check the data
     newdata
@@ -289,7 +289,7 @@ The function works similarly as numpy or pandas, but here we only need to provid
 .. code:: python
 
     # Determine the output path for the Shapefile
-    out_file = "Senaatintori.shp"
+    out_file = "raekoja_plats.shp"
 
     # Write the data into that Shapefile
     newdata.to_file(out_file)
@@ -353,6 +353,8 @@ Let's now export those species into individual Shapefiles.
 
 .. code:: python
 
+    import os
+    
     # Determine outputpath
     result_folder = "results"
 

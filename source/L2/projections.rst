@@ -123,7 +123,7 @@ You can find a lot of information about different available coordinate reference
 
   - `www.spatialreference.org <http://spatialreference.org/>`_
   - `www.epsg.io <https://epsg.io/>`_
-  - `www.proj4.org <http://proj4.org/projections/index.html>`_
+  - `www.proj4.org <https://proj.org/operations/projections/index.html>`_
   - `www.mapref.org <http://mapref.org/CollectionofCRSinEurope.html>`_
 
 Let's also check the values in our ``geometry`` column.
@@ -168,6 +168,8 @@ maps out of them.
 .. code:: python
 
     import matplotlib.pyplot as plt
+
+    %matplotlib inline
 
     # Plot the WGS84
     data.plot(facecolor='gray');
@@ -319,7 +321,7 @@ to calculate the distance between the centroids and Tartu. We will create our ow
 
 .. code:: python
 
-   def calculateDistance(row, dest_geom, src_col='geometry', target_col='distance'):
+   def def calculateDistance(row, dest_geom, src_col='geometry'):
        """
        Calculates the distance between a single Shapely Point geometry and a GeoDataFrame with Point geometries.
 
@@ -329,25 +331,21 @@ to calculate the distance between the centroids and Tartu. We will create our ow
            A single Shapely Point geometry to which the distances will be calculated to.
        src_col : str
            A name of the column that has the Shapely Point objects from where the distances will be calculated from.
-       target_col : str
-           A name of the target column where the result will be stored.
        """
        # Calculate the distances
        dist = row[src_col].distance(dest_geom)
        # Tranform into kilometers
        dist_km = dist/1000
-       # Assign the distance to the original data
-       row[target_col] = dist_km
-       return row
+       # return the distance value
+       return dist_km
 
 .. ipython:: python
    :suppress:
 
-      def calculateDistance(row, dest_geom, src_col='geometry', target_col='distance'):
+      def calculateDistance(row, dest_geom, src_col='geometry'):
           dist = row[src_col].distance(dest_geom)
           dist_km = dist/1000
-          row[target_col] = dist_km
-          return row
+          return dist_km
 
 The parameter row is used to pass the data from each row of our GeoDataFrame into our function and then the other paramaters are used for passing other necessary information for using our function.
 
@@ -363,7 +361,7 @@ This specifies that the calculations should be done row by row (instead of colum
 
 .. ipython:: python
 
-   data_d = data_d.apply(calculateDistance, dest_geom=tartu_geom, src_col='country_centroid', target_col='dist_to_tartu', axis=1)
+   data_d['dist_to_tartu'] = data_d.apply(calculateDistance, dest_geom=tartu_geom, src_col='country_centroid', axis=1)
    data_d.head(20)
 
 Great! Now we have successfully calculated the distances between the Polygon centroids and Tartu. :)
