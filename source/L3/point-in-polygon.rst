@@ -7,23 +7,21 @@ fundamental geospatial operations that are often used e.g. to select
 data based on location. Such spatial queries are one of the typical
 first steps of the workflow when doing spatial analysis. Performing a
 spatial join (will be introduced later) between two spatial datasets is
-one of the most typical applications where Point in Polygon (PIP) query
+one of the most typical applications where Point in Polygon query
 is used.
 
 How to check if point is inside a polygon?
 ------------------------------------------
 
-Computationally, detecting if a point is inside a polygon is most
-commonly done using a specific formula called `Ray Casting
-algorithm <https://shapely.readthedocs.io/en/latest/manual.html#Ray_casting_algorithm>`_.
-Luckily, we do not need to create such a function ourselves for
-conducting the Point in Polygon (PIP) query. Instead, we can take
+Computationally, detecting if a point is inside a polygon is a complicated matter.
+Luckily, we can use ready-made function for
+conducting the Point in Polygon query. We can take
 advantage of `Shapely's binary
 predicates <https://shapely.readthedocs.io/en/latest/manual.html#binary-predicates>`_
 that can evaluate the topolocical relationships between geographical
 objects, such as the PIP as we're interested here.
 
-There are basically two ways of conducting PIP in Shapely:
+There are basically two ways of conducting Point in Polygon queries in Shapely:
 
 1. using a function called
    `.within() <https://shapely.readthedocs.io/en/latest/manual.html#object.within>`_
@@ -193,60 +191,63 @@ However, if the lines overlap fully, they don't touch due to the spatial relatio
 Point in Polygon using Geopandas
 --------------------------------
 
-Next we will do a practical example where we check which of the addresses from `a prepared addresses shapefile addresses.shp <../_static/data/L3/addresses.zip>`_ are located in Southern district of Helsinki,
-by cross-checking with a polygon from `a KML-file <../_static/data/L3/PKS_suuralue.kml>`_ . The Polygons is for districts of Helsinki Region (data openly available from `Helsinki Region Infoshare <http://www.hri.fi/fi/dataset/paakaupunkiseudun-aluejakokartat>`_).
+Next we will do a practical example where we check which of Estonian Category III protected species
+sightings from a prepared monitoring GeoPackage file, `category_3_species_porijogi.gpkg <../_static/data/L3/category_3_species_porijogi.gpkg>`_, are located in
+the Idaoja sub-catchment of the Porijogi river, by cross-checking with the polygons from `a GeoJSON-file <../_static/data/L3/porijogi_sub_catchments.geojson>`_ .
+The Polygons are the modelled sub-catchments of the Porijogi river.
 
-- Let's start by reading the addresses from the Shapefile.
+However, reading a layer from a GeoPackage file needs an additional information of the ``layer`` name, because GeoPackage is basically an embedded database format,
+building on top of SQLite.
 
-.. ipython:: python
-
-   import geopandas as gpd
-   fp = "source/_static/data/L3/addresses.shp"
-   data = gpd.read_file(fp)
-
-
-
-Reading KML-files in Geopandas
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-It is possible to read the data from KML-file in a similar manner as Shapefile. However, we need to first, enable the KML-driver which is not enabled by default (because KML-files can contain unsupported data structures, nested folders etc., hence be careful when reading KML-files).
-
-- Let's enable the read and write functionalities for KML-driver by passing ``'rw'`` to whitelist of fiona's supported drivers:
+- Let's start by reading the addresses from the GeoPackage layer file.
 
 .. ipython:: python
 
    import geopandas as gpd
-   import matplotlib.pyplot as plt
-   gpd.io.file.fiona.drvsupport.supported_drivers['KML'] = 'rw'
+   # protected species under class 3 monitoring sightings
+   species_fp = "source/_static/data/L3/category_3_species_porijogi.gpkg"
+   species_data = gpd.read_file(species_fp, layer='category_3_species_porijogi', driver='GPKG')
 
-Now we should be able to read a KML file with Geopandas.
 
-- Let's read the data from a following KML -file:
+Reading GeoJSON-files in Geopandas
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+It is possible to read the data from GeoJSON-file in the same manner as Shapefile.
 
 .. ipython:: python
 
-   # Filepath to KML file
-   fp = "source/_static/data/L3/PKS_suuralue.kml"
-   polys = gpd.read_file(fp, driver='KML')
+   # porijogi_sub_catchments
+   polys_fp = "source/_static/data/L3/porijogi_sub_catchments.geojson"
+   polys = gpd.read_file(polys_fp, driver='GeoJSON')
    polys.head(5)
 
-Nice, now we can see that we have 22 districts in our area. We are interested in an area that is called ``Eteläinen`` (*'Southern'* in english).
+Nice, now we can see that we have the sub-diveded catchments for the Porijogi river. We are interested in the sub-catchment that is called ``Idaoja``.
 
 - Let's select that one and see where it is located, and plot also the points on top of the map.
 
+.. code:: python
+
+   import matplotlib.pyplot as plt
+   %matplotlib inline
+   plt.style.use('ggplot')
+   plt.rcParams['figure.figsize'] = (15, 15)
+
 .. ipython:: python
 
-   southern = polys.loc[polys['Name']=='Eteläinen']
-   southern.reset_index(drop=True, inplace=True)
-   fig, ax = plt.subplots()
+   @suppress
+   import matplotlib.pyplot as plt
+
+   subcatch = polys.loc[polys['NAME_1']=='Idaoja']
+   subcatch.reset_index(drop=True, inplace=True)
+   fig, ax = plt.subplots();
    polys.plot(ax=ax, facecolor='gray');
-   southern.plot(ax=ax, facecolor='red');
-   data.plot(ax=ax, color='blue', markersize=5);
-   @savefig helsinki_districts.png width=7in
+   subcatch.plot(ax=ax, facecolor='red');
+   species_data.plot(ax=ax, color='blue', markersize=5);
+   @savefig species_catchment.png width=7in
    plt.tight_layout();
 
 
-.. image:: ../_static/img/helsinki_districts.png
+.. image:: ../_static/img/species_catchment.png
 
 Okey, so we can see that, indeed, certain points are within the selected red Polygon.
 
@@ -259,13 +260,13 @@ Let's find out which one of them are located within the Polygon. Hence, we are c
    import shapely.speedups
    shapely.speedups.enable()
 
-- Let's check which Points are within the ``southern`` Polygon. Notice, that here we check if the Points are ``within`` the **geometry**
-  of the ``southern`` GeoDataFrame. Hence, we use the ``loc[0, 'geometry']`` to parse the actual Polygon geometry object from the GeoDataFrame.
+- Let's check which Points are within the ``subcatch`` Polygon. Notice, that here we check if the Points are ``within`` the **geometry**
+  of the ``subcatch`` GeoDataFrame. Hence, we use the ``loc[0, 'geometry']`` to parse the actual Polygon geometry object from the GeoDataFrame.
 
 .. ipython:: python
 
-   pip_mask = data.within(southern.loc[0, 'geometry'])
-   print(pip_mask)
+   pip_mask = species_data.within(subcatch.loc[0, 'geometry'])
+   display(pip_mask)
 
 As we can see, we now have an array of boolean values for each row, where the result is ``True``
 if Point was inside the Polygon, and ``False`` if it was not.
@@ -275,24 +276,24 @@ if Point was inside the Polygon, and ``False`` if it was not.
 
 .. ipython:: python
 
-   pip_data = data.loc[pip_mask]
+   pip_data = species_data.loc[pip_mask]
    pip_data
 
 Let's finally confirm that our Point in Polygon query worked as it should by plotting the data.
 
 .. ipython:: python
 
-   southern = polys.loc[polys['Name']=='Eteläinen']
-   southern.reset_index(drop=True, inplace=True)
+   subcatch = polys.loc[polys['NAME_1']=='Idaoja']
+   subcatch.reset_index(drop=True, inplace=True)
    fig, ax = plt.subplots()
    polys.plot(ax=ax, facecolor='gray');
-   southern.plot(ax=ax, facecolor='red');
-   pip_data.plot(ax=ax, color='gold', markersize=2);
-   @savefig helsinki_districts_pip.png width=7in
+   subcatch.plot(ax=ax, facecolor='red');
+   pip_data.plot(ax=ax, color='gold', markersize=10);
+   @savefig species_catchment_pip.png width=7in
    plt.tight_layout();
 
 
-.. image:: ../_static/img/helsinki_districts_pip.png
+.. image:: ../_static/img/species_catchment_pip.png
 
 
 Now we only have the (golden) points that, indeed, are inside the red Polygon which is exactly what we wanted!

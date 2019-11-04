@@ -99,8 +99,6 @@ Contents
    L2/overview
    L2/geopandas-basics
    L2/projections
-   L2/exercise
-   L2/exercise-hints
 
 
 .. commented out
@@ -108,6 +106,8 @@ Contents
    L3/overview.rst
    L3/point-in-polygon
    L3/spatial-join
+   L3/exercise
+   L3/exercise-hints
 
 
 .. commented out
