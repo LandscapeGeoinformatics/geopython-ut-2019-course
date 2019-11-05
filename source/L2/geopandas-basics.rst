@@ -64,6 +64,13 @@ want to explore your data on a map, you can use ``.plot()`` -function
 in geopandas that creates a simple map out of the data (uses
 matplotlib as a backend):
 
+ .. code:: python
+
+    # import matplotlib and make it show plots directly (inline) in Jupyter notebooks
+    import matplotlib.pyplot as plt
+    %matplotlib inline
+
+
 .. ipython:: python
 
     @savefig damselfish.png width=5in
@@ -215,7 +222,7 @@ Let's create a new column called ``geometry`` that will contain our Shapely obje
 Now we have a geometry column in our GeoDataFrame but we don't have any
 data yet.
 
-Let's create a Shapely Polygon repsenting the Tartu Townhall square that we can insert to our GeoDataFrame:
+Let's create a Shapely Polygon representing the Tartu Townhall square that we can insert to our GeoDataFrame:
 
 .. ipython:: python
 
@@ -283,6 +290,15 @@ determine the projection to WGS84 (epsg code: 4326):
     # Let's see how the crs definition looks like
     newdata.crs
 
+
+.. ipython:: python
+
+    @savefig raekoja_plats.png width=5in
+    newdata.plot();
+
+
+.. image:: ../_static/img/raekoja_plats.png
+
 Finally, we can export the data using GeoDataFrames ``.to_file()`` -function.
 The function works similarly as numpy or pandas, but here we only need to provide the output path for the Shapefile:
 
@@ -333,19 +349,20 @@ The ``groupby`` -function gives us an object called ``DataFrameGroupBy`` which i
         individual_fish = values
         print(key)
 
-    # Let's see what is the LAST item that we iterated
-    individual_fish
-
-From here we can see that an individual_fish variable now contains all the rows that belongs to a fish called ``Teixeirichthys jordani``. Notice that the index numbers refer to the row numbers in the
-original data -GeoDataFrame.
 
 Let's check again the datatype of the grouped object and what does the ``key`` variable contain
 
 .. ipython:: python
 
+    # Let's see what is the LAST item that we iterated
+    individual_fish
+
     type(individual_fish)
 
     print(key)
+
+From here we can see that an individual_fish variable now contains all the rows that belongs to a fish called ``Teixeirichthys jordani``. Notice that the index numbers refer to the row numbers in the
+original data -GeoDataFrame.
 
 As can be seen from the example above, each set of data are now grouped into separate GeoDataFrames that we can export into Shapefiles using the variable ``key``
 for creating the output filepath names. Here we use a specific string formatting method to produce the output filename using the ``.format()`` (`read more here (we use the new style with Python 3) <https://pyformat.info/>`_).

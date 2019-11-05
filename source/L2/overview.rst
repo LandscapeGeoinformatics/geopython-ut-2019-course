@@ -5,7 +5,7 @@ In this lesson, we will learn how to read and write spatial data, and how to dea
 and some useful data management functionalities.
 
 1. :doc:`Introduction to Geopandas <geopandas-basics>`
-2. :doc:`Managing map projections <projections>`
+2. :doc:`Coordinate Reference Systems (CRS) <crs-projections>`
 
 
 Learning goals
@@ -15,7 +15,7 @@ After this lesson, you should know how to:
 
  - Read and write data from/to Shapefile
  - Create geometries into GeoDataFrame
- - Change the coordinate reference system of the data
+ - Understand the importance of and change the coordinate reference system of spatial data
 
 Sources
 -------

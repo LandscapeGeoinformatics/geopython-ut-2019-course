@@ -98,7 +98,7 @@ Contents
    :caption: Lesson 2
    L2/overview
    L2/geopandas-basics
-   L2/projections
+   L2/crs-projections
 
 
 .. commented out

@@ -1,5 +1,5 @@
-Map projections
-===============
+Coordinate Reference Systems (CRS)
+==================================
 
 Coordinate reference systems (CRS) are important because the geometric shapes in a GeoDataFrame are simply a
 collection of coordinates in an arbitrary space. A CRS tells Python how those coordinates related to places on
@@ -11,9 +11,6 @@ common procedure to redefine the map projections to be identical in both
 layers. It is important that the layers have the same projection as it
 makes it possible to analyze the spatial relationships between layers,
 such as in conducting the Point in Polygon spatial query.
-
-Coordinate Reference Systems (CRS)
-----------------------------------
 
 Coordinate Reference Systems (CRS), also referred to as Spatial Reference Systems (SRS), include two common types:
 
@@ -27,7 +24,7 @@ Coordinate Reference Systems (CRS), also referred to as Spatial Reference System
 
 
 Geographic coordinate system (GCS)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+----------------------------------
 
 A geographic coordinate system uses a ellipsoidal surface to define locations on the Earth.
 There are three parts to a geographic coordinate system:
@@ -43,7 +40,7 @@ Both latitude and longitude are typically represented in two ways:
 
 
 Projected coordinate system (PCS)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+---------------------------------
 
 Projected coordinate systems define a flat 2D Cartesian surface. Unlike a geographic coordinate system,
 a projected coordinate system has constant lengths, angles, and areas across the two dimensions.
@@ -57,7 +54,7 @@ Projected Coordinate Systems consist of:
 - Linear units (meters, kilometers, miles etc)
 
 Defining and changing CRSs in Geopandas
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+---------------------------------------
 
 Luckily, defining and changing CRSs is easy in Geopandas. In this tutorial we will see how to retrieve the
 coordinate reference system information from the data, and how to change it. We will re-project a data file from
@@ -134,11 +131,10 @@ Let's also check the values in our ``geometry`` column.
 
 So the coordinate values of the Polygons indeed look like lat-lon values.
 
-Let's convert those geometries into Lambert Azimuthal Equal Area projection (`EPSG: 3035 <http://spatialreference.org/ref/epsg/etrs89-etrs-laea/>`_).
+Let's convert (aka reproject) those geometries into Lambert Azimuthal Equal Area projection (`EPSG: 3035 <http://spatialreference.org/ref/epsg/etrs89-etrs-laea/>`_).
 Changing the CRS is really easy to `do in Geopandas <http://geopandas.org/projections.html#re-projecting>`_
 with ``.to_crs()`` -function. As an input for the function, you
-should define the column containing the geometries, i.e. ``geometry``
-in this case, and a ``epgs`` value of the CRS that you want to use.
+should define the ``epgs`` value of the target CRS that you want to use.
 
 .. ipython:: python
 
@@ -222,16 +218,16 @@ Finally, let's save our projected layer into a Shapefile so that we can use it l
 
 .. note::
 
-   On Windows, the prj -file might NOT update with the new CRS value when using the ``from_epsg()`` -function. If this happens
-   it is possible to fix the prj by passing the coordinate reference information as proj4 text for EPSG:3035, like following.
+   It is possible to pass more specific coordinate reference definition information as proj4 text, like following example for EPSG:3035
 
-   .. ipython:: python
+   .. code:: python
 
       data_proj.crs = '+proj=laea +lat_0=52 +lon_0=10 +x_0=4321000 +y_0=3210000 +ellps=GRS80 +units=m +no_defs'
 
-   You can find ``proj4`` text versions for different CRS from `spatialreference.org <http://spatialreference.org>`_.
-   Each page showing spatial reference information has links for different formats for the CRS. Click a link that says ``Proj4`` and
-   you will get the correct proj4 text presentation for your CRS.
+   You can find ``proj4`` text versions for different CRS from `spatialreference.org <http://spatialreference.org>`_ or 
+   `http://epsg.io/ <http://epsg.io/>`_. Each page showing spatial reference information has links for different formats for the CRS.
+   Click a link that says ``Proj4`` and you will get the correct proj4 text presentation for your CRS.
+
 
 Calculating distances
 ---------------------
@@ -248,7 +244,7 @@ in meters.
     from shapely.geometry import Point
     from fiona.crs import from_epsg
 
-Next we need to specify our CRS to metric system using `World Azimuthal Equidistant -projection <https://epsg.io/54032>`_ where distances are represented correctly from the center longitude and latitude.
+Next we need to specify our CRS to metric system using `World Azimuthal Equidistant -projection <https://epsg.io/54032>`_ where distances are represented correctly from the center point.
 
 - Let's specify our target location to be the coordinates of Tartu (lon=26.7290 and lat=58.3780).
 

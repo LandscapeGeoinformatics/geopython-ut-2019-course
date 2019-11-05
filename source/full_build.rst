@@ -22,7 +22,7 @@ Contents
 
    L2/overview
    L2/geopandas-basics
-   L2/projections
+   L2/crs-projections
 
    L3/overview.rst
    L3/point-in-polygon
