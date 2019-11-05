@@ -27,8 +27,8 @@ join that can be applied in spatial join that are determined with ``op``
 Sounds familiar? Yep, all of those spatial relationships were discussed
 in the `previous materials <point-in-polygon.html>`_, thus you should know how they work.
 
-Let's perform a spatial join between the species  `Shapefile (addresses.shp) <../_static/data/L3/addresses.zip>`_
-and a Polygon layer that is a 250m x 250m grid showing the amount of people living in Helsinki Region.
+Let's perform a spatial join between the species monitoring data GeoPackage file, `category_3_species_porijogi.gpkg <../_static/data/L3/category_3_species_porijogi.gpkg>`_
+and a Polygon layer that is extracted Corine Landuse Cover for the Porijogi region.
 
 
 Download and clean the data
@@ -188,9 +188,17 @@ resulting ``join`` for largest landuse type and species types combinations:
 
 .. ipython:: python
 
+    # initialise empty list
+    data_list = [] 
+
     for species_id, species_group in join.groupby('NIMI'):
         lulc_count = species_group['LABEL2'].value_counts()
         top = lulc_count.head(1)
-        # display(type(top))
-        # print(top)
-        print("species_id: {}, number of sightings: {}, top lulc: {}, number: {}".format(species_id, len(species_group), top.index[0], top[0] ))
+        # add info to list
+        data_list.append({'species_id':species_id, 'all_sights': len(species_group), 'top_lulc': top.index[0], 'sights_in_top': top[0]})
+
+    # Creates DataFrame from now filled list wit hdata items. 
+    top_sights = pd.DataFrame(data_list) 
+    
+    # Print the data 
+    top_sights.sort_values(by=['all_sights','sights_in_top'], ascending=False).head(10)
