@@ -122,4 +122,19 @@ venv.bak/
 dmypy.json
 
 # Pyre type checker
-.pyre/
+.pyre
+
+
+# automatic result outputs, not required in Git
+source/_static/data/L2/DAMSELFISH_distributions_SELECTION.cpg
+source/_static/data/L2/DAMSELFISH_distributions_SELECTION.dbf
+source/_static/data/L2/DAMSELFISH_distributions_SELECTION.prj
+source/_static/data/L2/DAMSELFISH_distributions_SELECTION.shp
+source/_static/data/L2/DAMSELFISH_distributions_SELECTION.shx
+source/_static/data/L2/raekoja_plats.cpg
+source/_static/data/L2/raekoja_plats.dbf
+source/_static/data/L2/raekoja_plats.prj
+source/_static/data/L2/raekoja_plats.shp
+source/_static/data/L2/raekoja_plats.shx
+source/_static/data/L2/results/
+grading/  

@@ -2,12 +2,12 @@ Exercise 2 hints
 ================
 
 
-Hints regarding the some_posts.csv dataset
+Hints regarding the storms csv dataset
 ------------------------------------------
 
 - You are not supposed to manually work with the data (e.g. Excel or something)
 - Reuse your "create_lineGeom" function from Exercise 1
-- be defensive, so that either you get a valid line_string, or otherwise don't use that users movement in the new movements geodataframe
+- be defensive, so that either you get a valid line_string, or otherwise don't use that storms movement in the new movements geodataframe
 - reuse your calculate lengths from exercise 1, as it is now in a metric-unit projected coordinate system, the lengths are already meaningful
 
 Converting Pandas DataFrame into a GeoDataFrame
@@ -113,14 +113,14 @@ Sorting and Adding "advanced functions usage on the dataframes
     # version 1:
     # append row by row, gives you more control based on how you stored the intermediate new rows in your list (e.g. as tuple or [] pair)
     for idx in range(0, len(new_rows)):
-        newdata = newdata.append({'userid': new_rows[idx][0], 'geometry': new_rows[idx][1]}, ignore_index=True)
+        newdata = newdata.append({'Serial_Num': new_rows[idx][0], 'geometry': new_rows[idx][1]}, ignore_index=True)
 
 .. code::
 
     # version 2:
     # directly create a temporary dataframe and use collected rows-list;
     # the rows-list needs to be a "list of lists", where each "sublists" consists of the entries for each row
-    temp_df = pd.DataFrame(new_rows, columns=['userid','geometry'])
+    temp_df = pd.DataFrame(new_rows, columns=['Serial_Num','geometry'])
     # and then "just" append the temp dataframe onto the other dataframe
     newdata = newdata.append(temp_df, sort=False)
 

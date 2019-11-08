@@ -94,23 +94,23 @@ Contents
    L1/exercise
    L1/exercise-hints
 
-.. commented out
+
+.. toctree::
+   :maxdepth: 2
    :caption: Lesson 2
+   
    L2/overview
    L2/geopandas-basics
    L2/crs-projections
 
 
-.. commented out
+.. toctree::
+   :maxdepth: 2
    :caption: Lesson 3
+
    L3/overview.rst
    L3/point-in-polygon
    L3/spatial-join
-   L3/exercise
-   L3/exercise-hints
-
-
-.. commented out
    L3/exercise
    L3/exercise-hints
 

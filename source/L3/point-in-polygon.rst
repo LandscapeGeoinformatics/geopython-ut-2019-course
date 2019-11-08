@@ -297,3 +297,8 @@ Let's finally confirm that our Point in Polygon query worked as it should by plo
 
 
 Now we only have the (golden) points that, indeed, are inside the red Polygon which is exactly what we wanted!
+
+**Launch in the web/MyBinder:**
+
+.. image:: https://mybinder.org/badge_logo.svg
+     :target: https://mybinder.org/v2/gh/LandscapeGeoinformatics/geopython-ut-2019/master?filepath=L3%2Flesson3.ipynb

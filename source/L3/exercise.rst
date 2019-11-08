@@ -29,7 +29,7 @@ Copy the code into your Jupyter notebook for the exercise.
 There are all together 6 steps that you need to fill to accomplish the problem 1.
 Each step that you need to fill is marked with capital P -letter (P1 to P6).
 
-Problem 2: Points to map (3 points)
+Problem 2: Points to map (4 points)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The problem 2 this lesson continues the process that we started last lesson, i.e. creating geometric point -objects and putting them into a map.
@@ -48,9 +48,9 @@ The data has 1627 rows and consists of locations, times and addirional informati
 +------------------+---------------------------------------------------------+
 | Column           | Description                                             |
 +==================+=========================================================+
-| Latitude         | y-coordinate of the post                                |
+| Latitude         | y-coordinate of the tracked position                    |
 +------------------+---------------------------------------------------------+
-| Longitude        | x-coordinate of the post                                |
+| Longitude        | x-coordinate of the tracked position                    |
 +------------------+---------------------------------------------------------+
 | Serial_Num       | a unique ID for each on-going storm                     |
 +------------------+---------------------------------------------------------+
@@ -70,35 +70,43 @@ The data has 1627 rows and consists of locations, times and addirional informati
 - Convert that DataFrame into a GeoDataFrame, `see hints <exercise-hints.html>`_
 - set the CRS for coordinate system as WGS84 (i.e. epsg code: 4326)
 - Save the data into a Shapefile called ``storm_track_positions.shp``
-- Create a simple map of those points using the ``.plot()`` -function in Python. Save it as a png file (storm_track_positions.png).
 
 
-Problem 3: How long distance individual storms have travelled? (3 points)
+- `download the the shapefile world_lowres.zip <../_static/data/Exercise2/world_lowres.zip>`_
+- load it into a GeoDataFrame
+- make sure that the world_lowres GeoDataframe in in the same coordinate reference system (reproject if necessary)
+- Create a simple map plot of those points using the ``.plot()`` -function on top of the world_lowres countries. See lesson how to plot several GeoDataframes in one image. Save it as a png file (storm_track_positions.png).
+
+
+Problem 3: How long distance individual storms have travelled? (4 points)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 In this problem the aim is to calculate the distance in kilometers that the individual storms have travelled according to
 their tracking points (distances in kilometers from first tracking to last tracking point along their tracked paths).
 
-Write your codes into the same notebook for the previous Problem (2).
+Write your codes into the same notebook for the previous problems.
 
 In your code you should:
 
- - Group the data by userid
- - Create an empty GeoDataFrame called ``movements``
- - Set the CRS of the ``movements`` GeoDataFrame to ``EPSG:4326``
+- Group the storms point tracking data by storm id
+- Create an empty GeoDataFrame called ``movements``
+- Set the CRS of the ``movements`` GeoDataFrame to ``EPSG:4326``
 
- - For each user:
-    - `sort <http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.sort_values.html>`_ the rows by timestamp
-    - create LineString objects based on the points
-    - `add <http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.append.html>`_ the geometry and the userid into the GeoDataFrame you created in the last step
- 
-  - Save the movements of into a Shapefile called ``Some_movements.shp``
+- For each storm in the group, do:
+   - `sort <http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.sort_values.html>`_ the rows by timestamp
+   - create LineString objects based on the points
+   - `add <http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.append.html>`_ the linestring geometry and the storm id (and name if you like) into the ``movements`` GeoDataFrame you created in the last step
+
+
+- Save the new movements geodataframe into a Shapefile called ``storm_movements.shp``
+- Create a simple map of the storm paths over the world_lowres countries again. Save it as a png file (storm_movements.png).
+
 
 - Reproject the data from WGS84 into the `EPSG:4087 <https://epsg.io/4087>`_ WGS 84 / World Equidistant Cylindrical -projection to transform the data into a distance-preserving metric-based system.
 - load world countries shapefile, reproject into same CRS and plot together with storm paths
 - Calculate the lenghts of the storm lines into a new column called ``distance`` in ``movements`` GeoDataFrame.
 
-2. Calculate the storm path distances again based on the ``EPSG:3857 <https://epsg.io/3857>`_ web mercator -projection? What do you observe?
+2. Calculate the storm path distances again based on the `EPSG:3857 <https://epsg.io/3857>`_ web mercator -projection? What do you observe?
 
 Questions
 ---------
@@ -114,9 +122,9 @@ Optional task for advanced students (additional max 3 points)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. Which storm(s) made landfall in the USA? Make appropriate geographic queries (e.g. PIP, touch or intersect) to find out which storm paths are passing over USA continental territory (``'name'=='United States of America'``).
-2. Define an Azimuthal Equi-Distant projection centered in the middle (centroid) of all the storms (tracking positions or paths) in order to re-calculate the distances even more correctly.
+2. Define a a customised ``Azimuthal Equi-Distant projection`` centered in the middle (centroid) of all the storms (tracking positions or paths) in order to re-calculate the distances even more correctly.
 
-See lesson, where we recentered the European projection string definition.
+See lesson 2, where we recentered the European projection string definition.
 
 .. code:: Python
 
@@ -124,3 +132,9 @@ See lesson, where we recentered the European projection string definition.
     p = MultiPoint([v for v in geo_df['geometry'].values]).centroid
     print(p)
     POINT (-58.02241566920573 26.17170837867247)
+
+
+.. code:: Python
+
+    proj4_txt = '+proj=aeqd +lat_0={} +lon_0={} +x_0=0 +y_0=0 +ellps=WGS84 +datum=WGS84 +units=m +no_defs'.format(centre_lat, centre_lon)
+    proj_data_new = data.to_crs(proj4_txt)

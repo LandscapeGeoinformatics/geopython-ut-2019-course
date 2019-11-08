@@ -397,3 +397,8 @@ Let's now export those species into individual Shapefiles.
 Now we have saved those individual fishes into separate Shapefiles and named the file according to the species name.
 These kind of grouping operations can be really handy when dealing with Shapefiles.
 Doing similar process manually would be really laborious and error-prone.
+
+**Launch in the web/MyBinder:**
+
+.. image:: https://mybinder.org/badge_logo.svg
+     :target: https://mybinder.org/v2/gh/LandscapeGeoinformatics/geopython-ut-2019/master?filepath=L2%2Flesson2.ipynb

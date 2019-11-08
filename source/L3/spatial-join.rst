@@ -64,7 +64,7 @@ You should now have the files listed above in your Data folder.
 
 Okey so we have multiple columns in the dataset but the most important
 one here is the column ``clc_int`` (*corine landuse code*) that
-tells the type of landuse cover under that polygon.
+tells the type of landuse cover under that polygon. Download the codes `lookup table <../_static/data/L3/corine_landuse_codes.csv>`_
 
 In order to know what the codes mean, we will merge a lookup table to our spatial landuse cover GeoDataframe.
 
@@ -202,3 +202,7 @@ resulting ``join`` for largest landuse type and species types combinations:
     
     # Print the data 
     top_sights.sort_values(by=['all_sights','sights_in_top'], ascending=False).head(10)
+
+
+.. image:: https://mybinder.org/badge_logo.svg
+     :target: https://mybinder.org/v2/gh/LandscapeGeoinformatics/geopython-ut-2019/master?filepath=L3%2Flesson3.ipynb
