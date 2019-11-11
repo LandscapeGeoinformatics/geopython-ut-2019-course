@@ -378,3 +378,8 @@ Let's check what is the longest and mean distance to Tartu from the centroids of
    `Haversine formula <https://en.wikipedia.org/wiki/Haversine_formula>`_ to do the calculations.
    `Haversine <https://github.com/mapado/haversine>`_ package in Python provides an easy-to-use function for calculating these
    based on latitude and longitude values.
+
+**Launch in the web/MyBinder:**
+
+.. image:: https://mybinder.org/badge_logo.svg
+     :target: https://mybinder.org/v2/gh/LandscapeGeoinformatics/geopython-ut-2019/master?filepath=L2%2Flesson2.ipynb

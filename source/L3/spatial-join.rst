@@ -204,5 +204,7 @@ resulting ``join`` for largest landuse type and species types combinations:
     top_sights.sort_values(by=['all_sights','sights_in_top'], ascending=False).head(10)
 
 
+**Launch in the web/MyBinder:**
+
 .. image:: https://mybinder.org/badge_logo.svg
      :target: https://mybinder.org/v2/gh/LandscapeGeoinformatics/geopython-ut-2019/master?filepath=L3%2Flesson3.ipynb

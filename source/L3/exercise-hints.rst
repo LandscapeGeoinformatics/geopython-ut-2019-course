@@ -124,3 +124,82 @@ Sorting and Adding "advanced functions usage on the dataframes
     # and then "just" append the temp dataframe onto the other dataframe
     newdata = newdata.append(temp_df, sort=False)
 
+Some Do's and Dont's recommendations for Python coding
+------------------------------------------------------
+
+- DON'T
+
+.. code:: python
+
+    def function():
+        # these return the actual strings that you put here
+        return "Error: LineString or Polygon geometries required!"
+        # or
+        return("Error! Please insert a list of Shapely Points or coordinate tuples!")
+
+    length=function(xyz)
+    print(length)
+
+- DO
+
+.. code:: python
+
+    def function():
+        # ...
+        print("Error: LineString or Polygon geometries required!")
+        # no return statement or return explicitly None
+        return None
+
+- also...
+
+.. code:: python
+
+    # don't return in brackets
+    return (polygon)
+    # do
+    return polygon
+
+
+- Don't mix/mistake tuple for lists
+
+.. code:: python
+
+    # tuple
+    PList = (point1, point2)
+
+    # list
+    PList = [point1, point2]
+
+
+- do not make spaces before the brackets, for readability, but after commas. All work though :-) but for style
+
+.. code:: python
+
+    # no
+    Point (x, y)
+    # no
+    Point(x,y)
+    # yes, ideal
+    Point(x, y)
+
+
+- variable and function names, lower case first letters is better
+
+.. code:: python
+
+    # no
+    Point1 = createPointGeom(1.5,3.2)
+    # no
+    point1 = CreatePointGeom(1.5,3.2)
+
+    # yes
+    point1 = createPointGeom(1.5, 3.2)
+    point1 = create_point_geom(1.5, 3.2)
+
+
+- reserved words, it works, but it's dangerous and might be misleading
+
+.. code:: python
+
+    def getCentroid(object):
+        return object.centroid
