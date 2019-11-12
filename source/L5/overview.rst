@@ -4,8 +4,10 @@ Lesson 5 overview
 During this lesson we will learn a few really useful and commonly used GIS functionalities using Geopandas and PySAL.
 
 1. :doc:`Data classification and re-classification <reclassify>`
-2. :doc:`Exercise 3 <exercise>`
-3. :doc:`Exercise 3 hints <exercise-hints>`
+
+.. commented:
+    2. :doc:`Exercise 3 <exercise>`
+    3. :doc:`Exercise 3 hints <exercise-hints>`
 
 Learning goals
 --------------
