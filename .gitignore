@@ -137,4 +137,5 @@ source/_static/data/L2/raekoja_plats.prj
 source/_static/data/L2/raekoja_plats.shp
 source/_static/data/L2/raekoja_plats.shx
 source/_static/data/L2/results/
-grading/  
+grading/ 
+source/_static/data/L5/bogs.*

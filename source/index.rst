@@ -115,29 +115,34 @@ Contents
    L3/exercise-hints
 
 
-.. commented out
+.. toctree::
+   :maxdepth: 2
    :caption: Lesson 4
+
    L4/overview
-   L4/reclassify
-   L4/gmaps-heatmap
-   L4/ex-4
-   L4/exercise-4-hints
+   L4/raster
+   
 
-
-.. commented out
-   L4/geometric-operations
-   L4/lecture
-
-
-.. commented out
+.. toctree::
+   :maxdepth: 2
    :caption: Lesson 5
+
    L5/overview
-   L5/static-maps
-   L5/interactive-map-bokeh
-   L5/interactive-map-folium
-   L5/ex-5
-   L5/exercise-5-hints
-   L5/examples_2018
+   L5/reclassify
+
+
+.. commented out
+   L5/exercise
+   L5/exercise-hints
+
+
+.. commented out
+   L6/static-maps
+   L6/interactive-map-bokeh
+   L6/interactive-map-folium
+   L6/exercise
+   L6/exercise-hints
+   L6/examples_2018
 
 
 .. commented out

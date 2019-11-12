@@ -30,15 +30,15 @@ Contents
    L3/exercise
    L3/exercise-hints
 
-.. commented out
-   L4/exercise
-   L4/exercise-hints
    L4/overview
+   L4/raster
 
+   L5/overview.rst
+   L5/reclassify.rst
    L5/exercise
    L5/exercise-hints
-   L5/overview.rst
-   
+
+.. commented out
    L6/exercise
    L6/exercise-hints
    L6/overview

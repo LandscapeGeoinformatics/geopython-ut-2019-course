@@ -1,4 +1,4 @@
-Lesson 4 overview
+Lesson 5 overview
 =================
 
 During this lesson we will learn a few really useful and commonly used GIS functionalities using Geopandas and PySAL, namely:

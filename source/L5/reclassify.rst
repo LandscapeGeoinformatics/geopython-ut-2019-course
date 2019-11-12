@@ -545,3 +545,8 @@ And in order to add our custom legend info to the plot, we need to employ a bit 
 
 .. image:: ../_static/img/population_std_mean.png
 
+
+**Launch in the web/MyBinder:**
+
+.. image:: https://mybinder.org/badge_logo.svg
+     :target: https://mybinder.org/v2/gh/LandscapeGeoinformatics/geopython-ut-2019/master?filepath=L5%2Flesson5.ipynb
