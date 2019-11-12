@@ -139,3 +139,8 @@ source/_static/data/L2/raekoja_plats.shx
 source/_static/data/L2/results/
 grading/ 
 source/_static/data/L5/bogs.*
+source/exercises/Exercise2/storm_track_positions.*
+source/exercises/Exercise2/polygon_out.*
+source/exercises/Exercise2/storm_movements.*
+source/_static/data/L4/forest_loss_clipped.tif
+source/_static/data/L4/forest_loss_porijogi_3301.tif
