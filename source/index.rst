@@ -129,9 +129,6 @@ Contents
 
    L5/overview
    L5/reclassify
-
-
-.. commented out
    L5/exercise
    L5/exercise-hints
 
