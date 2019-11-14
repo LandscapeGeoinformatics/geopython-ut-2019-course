@@ -20,7 +20,7 @@ Problem 1: Create a map of a phenomenon from raster data and classify with zonal
 1. read in data
 
    - read in the European countries shapefile ``europe_lowres.shp``
-   - read in the raster of precipitation data ``gpcc_precip_2018_11.tif`` (absolut amount of rainfall in November 2018 in mm), Meyer-Christoffer, Anja; Becker, Andreas; Finger, Peter; Schneider, Udo; Ziese, Markus (2018): GPCC Climatology Version 2018 at 0.25°: Monthly Land-Surface Precipitation Climatology for Every Month and the Total Year from Rain-Gauges built on GTS-based and Historical Data. `DOI: 10.5676/DWD_GPCC/CLIM_M_V2018_025 <https://opendata.dwd.de/climate_environment/GPCC/html/gpcc_normals_v2018_doi_download.html>`_
+   - read in the raster of precipitation data ``gpcc_precip_2018_11.tif`` (gridded monthly totals of rainfall in November 2018 in mm), Meyer-Christoffer, Anja; Becker, Andreas; Finger, Peter; Schneider, Udo; Ziese, Markus (2018): GPCC Climatology Version 2018 at 0.25°: Monthly Land-Surface Precipitation Climatology for Every Month and the Total Year from Rain-Gauges built on GTS-based and Historical Data. `DOI: 10.5676/DWD_GPCC/CLIM_M_V2018_025 <https://opendata.dwd.de/climate_environment/GPCC/html/gpcc_normals_v2018_doi_download.html>`_
 
 2. basic plot
 
@@ -85,4 +85,4 @@ The *dominance area* is the geographical area from where the given service (shop
 Optional task for advanced students (additional max 3 points)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Clip precipitation raster file (while still in EPSG:4326) and then reproject (into EPSG:3035) the for Europe and plot it with the Europe countries shapefile (in EPSG:3035). Make it look good.
+Clip the precipitation raster file (while still in EPSG:4326) for European countries and then reproject (into EPSG:3035) and plot it with the Europe countries shapefile (in EPSG:3035). Make it look good.

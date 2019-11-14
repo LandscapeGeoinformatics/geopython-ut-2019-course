@@ -193,6 +193,7 @@ based on some value(s) is easy to do in Pandas / Geopandas using the indexer cal
     bogs = data_proj.loc[data['LABEL3'] == 'Peat bogs'].copy()
     bogs.head(2)
 
+
 Calculations in DataFrames
 --------------------------
 
@@ -342,25 +343,25 @@ Okey so it looks like they are correctly classified, good. As a final step let's
 Classification based on common classification schemes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-`Pysal <http://pysal.readthedocs.io/en/latest/>`_ -module is an extensive Python library including various functions and tools to
+`Pysal <https://pysal.readthedocs.io/en/latest/index.html>`_ -module is an extensive Python library including various functions and tools to
 do spatial data analysis. It also includes all of the most common data classification schemes that are used commonly e.g. when visualizing data.
-Available map classification schemes in pysal -module are (`see here for more details <http://pysal.readthedocs.io/en/latest/library/esda/mapclassify.html>`_):
+Available map classification schemes in pysal -module are (`see here for more details <https://pysal.readthedocs.io/en/latest/api.html#pysal-viz-mapclassify-choropleth-map-classification>`_):
 
- - Box_Plot
- - Equal_Interval
- - Fisher_Jenks
- - Fisher_Jenks_Sampled
- - HeadTail_Breaks
- - Jenks_Caspall
- - Jenks_Caspall_Forced
- - Jenks_Caspall_Sampled
- - Max_P_Classifier
- - Maximum_Breaks
- - Natural_Breaks
- - Quantiles
- - Percentiles
- - Std_Mean
- - User_Defined
+- Box_Plot: Box_Plot Map Classification
+- Equal_Interval: Equal Interval Classification
+- Fisher_Jenks: Fisher Jenks optimal classifier - mean based
+- Fisher_Jenks_Sampled: Fisher Jenks optimal classifier - mean based using random sample
+- HeadTail_Breaks: Head/tail Breaks Map Classification for Heavy-tailed Distributions
+- Jenks_Caspall: Jenks Caspall Map Classification
+- Jenks_Caspall_Forced: Jenks Caspall Map Classification with forced movements
+- Jenks_Caspall_Sampled: Jenks Caspall Map Classification using a random sample
+- Max_P_Classifier: Max_P Map Classification
+- Maximum_Breaks(: Maximum Breaks Map Classification
+- Natural_Breaks: Natural Breaks Map Classification
+- Quantiles: Quantile Map Classification
+- Percentiles: Percentiles Map Classification
+- Std_Mean: Standard Deviation and Mean Map Classification
+- User_Defined: User Specified Binning
 
 
 For this we will use the Adminstrative Units dataset for population.
@@ -389,27 +390,10 @@ Typically in cartography three to seven classes are preferred and five is the mo
 
     fp = "source/_static/data/L5/population_admin_units.shp"
     acc = gpd.read_file(fp)
+    print(acc.head(5))
 
 
-.. ipython:: python
-    :okwarning:
-
-    import pysal.viz.mapclassify as mc
-
-    # Define the number of classes
-    n_classes = 5
-
-
-The classifier needs to be initialized first with ``make()`` function that takes the number of desired classes as input parameter.
-
-.. ipython:: python
-
-    # Create a Natural Breaks classifier
-    classifier = mc.NaturalBreaks.make(k=n_classes)
-
-
-Now we can apply that classifier into our data quite similarly as in our previous examples.
-But we will run into the "numbers as text problem" again.
+However, at a close look, we run into the "numbers as text problem" again.
 
 .. ipython:: python
 
@@ -440,6 +424,44 @@ e.g. like so ``data['code_tonumeric_int'] = pd.to_numeric(data['code_12'], error
 
 Both versions will at least return a useful NaN value (not_a_number, sort of a nodata value) without crashing. Pandas, Geopandas, numpy and many other Python libraries have some functionality to work with or ignore Nan values without breaking calculations.
 
+It would be great to know the actual class ranges for the values.
+So let's plot a histogram.
+
+.. ipython:: python
+
+    # Plot
+    fig, ax = plt.subplots()
+
+    acc["population_int"].plot.hist(bins=100);
+
+    # Add title
+    plt.title("Amount of inhabitants column histogram")
+    @savefig population_histogram.png width=7in
+    plt.tight_layout()
+
+.. image:: ../_static/img/population_histogram.png
+
+
+Now we can apply a classifier to our data quite similarly as in our previous examples.
+
+
+.. ipython:: python
+    :okwarning:
+
+    import pysal.viz.mapclassify as mc
+
+    # Define the number of classes
+    n_classes = 5
+
+
+The classifier needs to be initialized first with ``make()`` function that takes the number of desired classes as input parameter.
+
+.. ipython:: python
+
+    # Create a Natural Breaks classifier
+    classifier = mc.NaturalBreaks.make(k=n_classes)
+
+Then we apply the classifier by explicitly providing it a column and then assigning the derived class values to a new column.
 
 .. ipython:: python
 
@@ -464,23 +486,6 @@ Great, now we have those values in our population GeoDataFrame. Let's visualize 
 
 .. image:: ../_static/img/natural_breaks_population.png
 
-
-Now we have the plot, but it would be great to know the actual class ranges for the values.
-So let's plot the histogram again.
-
-.. ipython:: python
-
-    # Plot
-    fig, ax = plt.subplots()
-
-    acc["population_int"].plot.hist(bins=100);
-
-    # Add title
-    plt.title("Amount of inhabitants column histogram")
-    @savefig population_histogram.png width=7in
-    plt.tight_layout()
-
-.. image:: ../_static/img/population_histogram.png
 
 
 In order to get the min() and max() per class group, we use **groupby** again.

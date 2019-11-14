@@ -4,15 +4,31 @@ Exercise 3 hints
 Problem 1
 ---------
 
+- when renaming columns, either do it *inplace*, meeaning changing the dataframe immediately, or assign the dataframe with the changed column names to a variable:
 
-demstats_df.rename(columns={'mean':'dem_mean','std':'dem_std'}, inplace=True)
+.. code::
+
+    # compare and see in the raster lecture
+    demstats_df.rename(columns={'mean':'dem_mean','std':'dem_std'}, inplace=True)
+    # or reassign, without using the 'inplace' keyword
+    demstats = demstats_df.rename(columns={'mean':'dem_mean','std':'dem_std'})
 
 
-fig, (ax1, ax2) = plt.subplot(1, 2)
-geoplot(ax1)
-histplot(ax2)
-title
-plt.show
+- plotting the scale while ignoring the nodata values can be achieved with the vmin and vmax keywords for the plot functions. Check the histogram which values to consider for vmin and vmax. 
+
+- you can very easily plot a histogram from Pandas or Geopandas dataframe in th esame way, how to plot graphs or maps:
+
+.. code::
+
+    fig, (ax_map, ax_hist) = plt.subplots(1, 2, figsize=(13,8))
+    geo_df.plot(ax=ax_map, column="col_a", cmap="viridis", legend=True)
+    geo_df.hist(ax=ax_hist, column="col_a")
+    plt.title("a title for col_a")
+    plt.show()
+
+
+- see `Pandas documentation on historgram <https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.hist.html>`_
+
 
 
 Problem 2
