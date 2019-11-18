@@ -537,6 +537,12 @@ And in order to add our custom legend info to the plot, we need to employ a bit 
 .. image:: ../_static/img/natural_breaks_population_extra_labels.png
 
 
+.. ipython:: python
+    :suppress:
+
+    plt.close('all')
+
+
 .. todo::
 
    **Task:**

@@ -398,6 +398,12 @@ Now we have saved those individual fishes into separate Shapefiles and named the
 These kind of grouping operations can be really handy when dealing with Shapefiles.
 Doing similar process manually would be really laborious and error-prone.
 
+.. ipython:: python
+    :suppress:
+    
+    plt.close('all')
+
+
 **Launch in the web/MyBinder:**
 
 .. image:: https://mybinder.org/badge_logo.svg

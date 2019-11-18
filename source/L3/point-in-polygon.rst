@@ -298,6 +298,12 @@ Let's finally confirm that our Point in Polygon query worked as it should by plo
 
 Now we only have the (golden) points that, indeed, are inside the red Polygon which is exactly what we wanted!
 
+.. ipython:: python
+    :suppress:
+
+    plt.close('all')
+
+
 **Launch in the web/MyBinder:**
 
 .. image:: https://mybinder.org/badge_logo.svg

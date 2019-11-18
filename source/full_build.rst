@@ -33,12 +33,12 @@ Contents
    L4/overview
    L4/raster
 
-   L5/overview.rst
-   L5/reclassify.rst
+   L5/overview
+   L5/reclassify
    L5/exercise
    L5/exercise-hints
 
-.. commented out
+   L6/overview
+   L6/static-maps
    L6/exercise
    L6/exercise-hints
-   L6/overview

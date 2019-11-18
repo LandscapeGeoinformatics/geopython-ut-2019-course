@@ -635,6 +635,12 @@ The distribution of mean elevation within the catchment makes sense, the outlet 
 .. image:: ../_static/img/dem_pori_catch_mean.png
 
 
+.. ipython:: python
+    :suppress:
+
+    plt.close('all')
+
+
 **Launch in the web/MyBinder:**
 
 .. image:: https://mybinder.org/badge_logo.svg
