@@ -40,5 +40,7 @@ Contents
 
    L6/overview
    L6/static-maps
+   L6/interactive-map-bokeh
    L6/exercise
    L6/exercise-hints
+   L6/examples_2018

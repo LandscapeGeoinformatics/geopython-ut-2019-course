@@ -1043,5 +1043,3 @@ Let's save this and check the result.
 
 Cool, now we have an interactive map with three layers! As you see, this map does not yet have the same functionalities as the map on top of this page and we won't go into details how to do them now.
 
-.. commented out
-    If you are interested how to make such a map, you can read the docs for producing advanced bokeh map from :doc:`here <advanced-bokeh>`.
