@@ -8,7 +8,7 @@ This lesson we will focus on learning how to create beautiful maps in Python wit
 3. :doc:`Interactive Leaflet maps with Folium <interactive-map-folium>`
 4. :doc:`Exercise 4 <exercise>`
 5. :doc:`Exercise 4 hints <exercise-hints>`
-5. :doc:`Examples 2018 <examples_2018>`
+6. :doc:`Examples 2018 <examples_2018>`
 
 
 There are many different Python modules that can be used for making visualizations. And many of them allows you to create also different kinds of maps. During this lesson we will focus on few of them, namely:
@@ -19,7 +19,7 @@ There are many different Python modules that can be used for making visualizatio
 
 In addition to these modules, there are also several good and interesting other modules for making maps that we will NOT cover, but we mention them if you like to investigate by yourself later on:
 
- - `Cartopy <https://scitools.org.uk/cartopy/docs/latest/>`_ (The Cartopy project will replace Basemap, but it hasn’t yet implemented all of Basemap’s features.)
+ - `Cartopy <https://scitools.org.uk/cartopy/docs/latest/>`_
  - `GeoViews <http://geoviews.org/>`_
 
 Learning goals

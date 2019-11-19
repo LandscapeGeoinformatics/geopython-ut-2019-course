@@ -135,16 +135,16 @@ Contents
 
 .. toctree::
    :maxdepth: 2
-   :caption: Lesson 5
+   :caption: Lesson 6
 
    L6/overview
    L6/static-maps
    L6/interactive-map-bokeh
-   L6/exercise
-   L6/exercise-hints
    L6/examples_2018
 
 .. commented out
+   L6/exercise
+   L6/exercise-hints
    L6/interactive-map-folium
 
 

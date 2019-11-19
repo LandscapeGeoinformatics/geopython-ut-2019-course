@@ -148,3 +148,7 @@ of coding and what makes it so important to learn how to code.
    Try to change your plotting parameters, colors and colormaps and see how your results change!
    Change the order of plotting the layers and vector plotting criteria and see how they change the results.
 
+**Launch in the web/MyBinder:**
+
+.. image:: https://mybinder.org/badge_logo.svg
+     :target: https://mybinder.org/v2/gh/LandscapeGeoinformatics/geopython-ut-2019/master?filepath=L6%2FL6_static_maps_bokeh.ipynb
