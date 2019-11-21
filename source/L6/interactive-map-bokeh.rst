@@ -13,7 +13,10 @@ Import necessary functionalities from bokeh.
 
 .. code:: python
 
-    from bokeh.plotting import figure, output_file, output_notebook, show
+    from bokeh.plotting import figure, output_file, show
+    from bokeh.io import output_notebook
+
+    output_notebook()
 
 .. ipython:: python
    :suppress:
