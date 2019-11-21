@@ -634,3 +634,9 @@ You can save it and open it with your browser and see the result.
 
 .. raw:: html
     :file: ../_static/img/folium_full_map.html
+
+
+**Launch in the web/MyBinder:**
+
+.. image:: https://mybinder.org/badge_logo.svg
+     :target: https://mybinder.org/v2/gh/LandscapeGeoinformatics/geopython-ut-2019/master?filepath=L6%2FL6_folium.ipynb
