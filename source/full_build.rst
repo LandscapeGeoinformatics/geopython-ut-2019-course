@@ -39,7 +39,7 @@ Contents
    L5/exercise-hints
 
    L6/overview
-   L6/examples_2018
+   L6/examples
    L6/static-maps
    L6/interactive-map-bokeh
    L6/interactive-map-folium

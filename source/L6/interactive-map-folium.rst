@@ -107,7 +107,8 @@ road network and the schools are plotted on top of a web-map.
 First we need to prepare the data.
 
 .. ipython:: python
-
+   :okwarning:
+   
     import geopandas as gpd
     from fiona.crs import from_epsg
     from shapely.geometry import LineString, MultiLineString

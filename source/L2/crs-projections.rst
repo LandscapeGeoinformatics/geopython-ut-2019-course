@@ -285,6 +285,7 @@ From here we can see that indeed our map is now centered to Tartu as the 0-posit
 - Let's continue our analysis by creating a Point object from Tartu and insert it into a GeoPandas GeoSeries. We also specify that the CRS of the GeoSeries is WGS84. You can do this by using ``crs`` parameter when creating the GeoSeries.
 
 .. ipython:: python
+   :okwarning:
 
    tartu = gpd.GeoSeries([Point(tartu_lon, tartu_lat)], crs=from_epsg(4326))
 

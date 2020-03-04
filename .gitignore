@@ -124,6 +124,9 @@ dmypy.json
 # Pyre type checker
 .pyre
 
+# test demo stuff
+amz
+
 
 # automatic result outputs, not required in Git
 source/_static/data/L2/DAMSELFISH_distributions_SELECTION.cpg
@@ -144,3 +147,4 @@ source/exercises/Exercise2/polygon_out.*
 source/exercises/Exercise2/storm_movements.*
 source/_static/data/L4/forest_loss_clipped.tif
 source/_static/data/L4/forest_loss_porijogi_3301.tif
+

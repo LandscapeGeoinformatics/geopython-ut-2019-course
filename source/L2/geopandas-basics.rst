@@ -280,7 +280,8 @@ coordinate system for the GeoDataFrame. Next we will use that and
 determine the projection to WGS84 (epsg code: 4326):
 
 .. ipython:: python
-
+   :okwarning:
+   
     # Import specific function 'from_epsg' from fiona module
     from fiona.crs import from_epsg
 

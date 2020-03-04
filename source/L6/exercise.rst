@@ -26,7 +26,7 @@ to new datasets that you find online (or from your other work/study projects).
 
 But notice that the main aim here is that you try to do the visualizations as best as you can, it needs to look good and should make sense.
 
-Submit your maps (png, html) and source code (.ipynb)` to Moodle.
+Submit your maps (png, html) and source code (.ipynb)` to Moodle and make sure to provide the download links for the data used!
 
 
 Problem 1: Visualize a static map with multiple layers on it (5 points)
